@@ -1,19 +1,10 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
+import "../src/ProjectToken.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
-
-contract ProjectToken is ERC20, Ownable {
-    constructor(uint256 initialSupply) ERC20("Project Token", "PTK") Ownable(msg.sender) {
-        _mint(msg.sender, initialSupply * 10 ** decimals());
-    }
-
-    function mint(address to, uint256 amount) external onlyOwner {
-        _mint(to, amount);
-    }
-}
 
 contract TokenFaucet is Ownable, ReentrancyGuard {
     IERC20 public token;
@@ -34,15 +25,18 @@ contract TokenFaucet is Ownable, ReentrancyGuard {
     }
 
     // Professional standard: nonReentrant prevents draining attacks
-    function requestTokens() external nonReentrant {
-        require(block.timestamp >= nextAccessTime[msg.sender], "Cooldown active.");
-        require(token.balanceOf(address(this)) >= dripAmount, "Faucet empty.");
+    function requestTokens() public {
+        // Safety check: ensure the faucet has enough tokens
+        require(token.balanceOf(address(this)) >= dripAmount, "Faucet is empty");
 
+        // Ensure the user hasn't requested tokens too recently
+        require(block.timestamp >= nextAccessTime[msg.sender], "Cooldown active.");
+
+        // Update the user's next allowed access time
         nextAccessTime[msg.sender] = block.timestamp + cooldownTime;
 
-        require(token.transfer(msg.sender, dripAmount), "Transfer failed.");
-
-        emit TokensDispensed(msg.sender, dripAmount);
+        // Transfer tokens to the user
+        token.transfer(msg.sender, dripAmount);
     }
 
     function setDripAmount(uint256 _newAmount) external onlyOwner {
