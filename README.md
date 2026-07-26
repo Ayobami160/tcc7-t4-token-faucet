@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Web3 Token Faucet
+
+A decentralized application (dApp) developed as the final capstone project for the Web3 & Blockchain Development Techcruch C7 This project provides a seamless interface for developers to request test tokens on the Sepolia testnet to support their smart contract development and testing workflows.
+
+## Project Overview
+The Token Faucet addresses the common hurdle developers face when accessing testnet liquidity. By creating a controlled, smart-contract-backed distribution system, we ensure reliable access to test assets. The project features a full-stack integration between a Solidity-based smart contract backend and a responsive Next.js frontend.
+
+## Team
+- **Team Lead:** Ayobami (GitHub:Ayobami160)
+- **Team Members:** Jessica And Chuksemma.
+
+## Key Features
+- **Wallet Integration:** Seamless connection with MetaMask via [RainbowKit/Wagmi/Ethers.js].
+- **Automated Faucet Logic:** Secure token distribution governed by smart contract rules.
+- **Real-time Monitoring:** Dashboard to view faucet balance, claim status, and transaction history.
+- **Optimized UI:** A modern, dark-themed responsive interface built with Next.js and Tailwind CSS.
+- **Testnet Verified:** Deployed and fully operational on the Sepolia testnet.
+
+## Deployed Contract Addresses (Sepolia Testnet)
+* **Token Faucet Contract:** [0x73f8c388064bc9e3ec52f16ec76922691ec92072](https://sepolia.etherscan.io/address/0x73f8c388064bc9e3ec52f16ec76922691ec92072)
+* **ERC-20 Token Contract:** [0x7a81ee5c29ec574fbcee6d9da74ac070a5200ead](https://sepolia.etherscan.io/address/0x7a81ee5c29ec574fbcee6d9da74ac070a5200ead)  
+*   **Network:** Sepolia Testnet
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+Before running the project, ensure you have the following installed:
+- [Node.js](https://nodejs.org/) (v18.0.0 or higher)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+- [MetaMask](https://metamask.io/) browser extension
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Installation & Local Setup
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/Ayobami160/tcc7-t4-token-faucet.git](https://github.com/Ayobami160/tcc7-t4-token-faucet.git)
+   cd tcc7-t4-token-faucet
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Project Interface
+![Token Faucet Dashboard](assets/faucet-ui.png)
