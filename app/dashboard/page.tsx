@@ -1,5 +1,5 @@
-import Navbar from '../components/Navbar';
-import FaucetButton from '../components/FaucetButton';
+import Navbar from '../../components/Navbar';
+import FaucetButton from '../../components/FaucetButton';
 
 export default function DashboardPage() {
   return (
