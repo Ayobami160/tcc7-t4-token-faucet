@@ -37,3 +37,6 @@ Before running the project, ensure you have the following installed:
  
 ### Project Interface
 ![Token Faucet Dashboard](assets/faucet-ui.png)
+
+### Live Demo
+[View Live Token Faucet](https://tcc7-t4-token-faucet-yezt-k2uta03mf-token-faucet.vercel.app/)
