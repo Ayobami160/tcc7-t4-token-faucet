@@ -1,42 +1,41 @@
-# Web3 Token Faucet
+# Web3 Token Fauce
 
-A decentralized application (dApp) developed as the final capstone project for the Web3 & Blockchain Development Techcruch C7 This project provides a seamless interface for developers to request test tokens on the Sepolia testnet to support their smart contract development and testing workflows.
-
-## Project Overview
-The Token Faucet addresses the common hurdle developers face when accessing testnet liquidity. By creating a controlled, smart-contract-backed distribution system, we ensure reliable access to test assets. The project features a full-stack integration between a Solidity-based smart contract backend and a responsive Next.js frontend.
-
-## Team
-- **Team Lead:** Ayobami (GitHub:Ayobami160)
-- **Team Members:** Jessica And Chuksemma.
+A decentralized application (dApp) built for the Ethereum Sepolia testnet as part of the TechCrush Bootcamp C7 capstone project. This application allows users to request test tokens from a smart contract.
 
 ## Key Features
-- **Wallet Integration:** Seamless connection with MetaMask via [RainbowKit/Wagmi/Ethers.js].
-- **Automated Faucet Logic:** Secure token distribution governed by smart contract rules.
-- **Real-time Monitoring:** Dashboard to view faucet balance, claim status, and transaction history.
-- **Optimized UI:** A modern, dark-themed responsive interface built with Next.js and Tailwind CSS.
-- **Testnet Verified:** Deployed and fully operational on the Sepolia testnet.
 
-## Deployed Contract Addresses (Sepolia Testnet)
-* **Token Faucet Contract:** [0x73f8c388064bc9e3ec52f16ec76922691ec92072](https://sepolia.etherscan.io/address/0x73f8c388064bc9e3ec52f16ec76922691ec92072)
-* **ERC-20 Token Contract:** [0x7a81ee5c29ec574fbcee6d9da74ac070a5200ead](https://sepolia.etherscan.io/address/0x7a81ee5c29ec574fbcee6d9da74ac070a5200ead)  
-*   **Network:** Sepolia Testnet
+* Wallet Integration: Seamless connection with MetaMask via Ethers.js.
+* Token Claiming: Automated interaction with the smart contract to dispense tokens.
+* Network Management: Built for Ethereum Sepolia testnet compatibility.
+* Responsive UI: Optimized for user experience using Tailwind CSS and Next.js.
+
+## Tech Stack
+
+* Frontend: Next.js 16, React, Tailwind CSS
+* Web3 Library: Ethers.js (v6)
+* Blockchain: Solidity
+* Network: Ethereum Sepolia
+
+## Prerequisites
+
+* Node.js (v18 or higher)
+* MetaMask Browser Extension
+* Sepolia Testnet ETH (for gas fees)
+* 
+
+## Contract Details
+
+* Network: Ethereum Sepolia
+* Contract Address: 0x19e50CCbE5B073cefF40E3C433eaFc94C71f05fC
+* Technical Implementation:
+    * Implemented strict checksum validation by forcing address normalization (`.toLowerCase()`) before interaction to resolve `INVALID_ARGUMENT` errors.
+    * Integrated Ethers.js (v6) for secure contract instantiation and transaction handling.
+    * Successfully deployed and verified interaction on the Sepolia testnet.
+* ABI: Defined in app/page.tsx
 
 ## Getting Started
 
-### Prerequisites
-Before running the project, ensure you have the following installed:
-- [Node.js](https://nodejs.org/) (v18.0.0 or higher)
-- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
-- [MetaMask](https://metamask.io/) browser extension
-
-### Installation & Local Setup
-1. **Clone the repository:**
+1. Clone the repository:
    ```bash
-   git clone [https://github.com/Ayobami160/tcc7-t4-token-faucet.git](https://github.com/Ayobami160/tcc7-t4-token-faucet.git)
-   cd tcc7-t4-token-faucet
- 
-### Project Interface
-![Token Faucet Dashboard](assets/faucet-ui.png)
-
-### Live Demo
-[View Live Token Faucet](https://tcc7-t4-token-faucet-yezt-k2uta03mf-token-faucet.vercel.app/)
+   git clone [https://github.com/Ayobami160/tcc-t4-token-faucet.git](https://github.com/Ayobami160/tcc-t4-token-faucet.git)
+   cd tcc-t4-token-faucet
