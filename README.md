@@ -34,6 +34,6 @@ Before running the project, ensure you have the following installed:
    ```bash
    git clone [https://github.com/Ayobami160/tcc7-t4-token-faucet.git](https://github.com/Ayobami160/tcc7-t4-token-faucet.git)
    cd tcc7-t4-token-faucet
-
+ 
 ### Project Interface
 ![Token Faucet Dashboard](assets/faucet-ui.png)
