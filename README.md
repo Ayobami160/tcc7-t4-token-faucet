@@ -1,6 +1,8 @@
-# Web3 Token Fauce
+# Web3 Token Faucet - TechCrush Bootcamp C7
 
 A decentralized application (dApp) built for the Ethereum Sepolia testnet as part of the TechCrush Bootcamp C7 capstone project. This application allows users to request test tokens from a smart contract.
+
+**Live Demo:** https://tcc7-t4-token-faucet-yezt-cx4fwrrcw-token-faucet.vercel.app/
 
 ## Key Features
 
@@ -21,15 +23,16 @@ A decentralized application (dApp) built for the Ethereum Sepolia testnet as par
 * Node.js (v18 or higher)
 * MetaMask Browser Extension
 * Sepolia Testnet ETH (for gas fees)
-* 
 
 ## Contract Details
 
 * Network: Ethereum Sepolia
-* Contract Address: 0x19e50CCbE5B073cefF40E3C433eaFc94C71f05fC
+* Faucet Contract Address: `0x19e50CCbE5B073cefF40E3C433eaFc94C71f05fC`
+* Token Contract Address: `0x1934b6Cf15A316ebadE9c1A197FAf471615CBdC7`
 * Technical Implementation:
-    * Implemented strict checksum validation by forcing address normalization (`.toLowerCase()`) before interaction to resolve `INVALID_ARGUMENT` errors.
-    * Integrated Ethers.js (v6) for secure contract instantiation and transaction handling.
+    * Implemented administrative minting functions to manage faucet supply.
+    * Integrated token info display logic for real-time balance tracking.
+    * Resolved address normalization errors using `.toLowerCase()` for strict checksum validation.
     * Successfully deployed and verified interaction on the Sepolia testnet.
 * ABI: Defined in app/page.tsx
 
@@ -39,3 +42,4 @@ A decentralized application (dApp) built for the Ethereum Sepolia testnet as par
    ```bash
    git clone [https://github.com/Ayobami160/tcc-t4-token-faucet.git](https://github.com/Ayobami160/tcc-t4-token-faucet.git)
    cd tcc-t4-token-faucet
+   

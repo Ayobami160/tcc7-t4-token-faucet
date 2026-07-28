@@ -12,4 +12,8 @@ contract ProjectToken is ERC20, Ownable {
     function mint(address to, uint256 amount) external onlyOwner {
         _mint(to, amount);
     }
+
+    function getTokenInfo() public view returns (string memory name, string memory symbol, uint256 totalSupply) {
+        return ("Project Token", "PTK", totalSupply);
+    }
 }
