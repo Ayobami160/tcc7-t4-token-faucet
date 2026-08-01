@@ -19,9 +19,6 @@ contract TokenFaucetTest is Test {
         // Deploy the Faucet with the token address
         faucet = new TokenFaucet(address(token));
 
-        // Set the drip amount so the "empty" check works
-        faucet.setDripAmount(100);
-
         // Seed the faucet with 1000 tokens so it has a balance to dispense
         token.transfer(address(faucet), 1000 * 10**18);
     }
@@ -33,20 +30,22 @@ contract TokenFaucetTest is Test {
 
     function test_RequestTokensUpdatesUserBalance() public {
         uint256 initialBalance = token.balanceOf(user);
+        uint256 requestAmount = 100 * 10**18;
         
-        // Simulate a user calling the function
+        // Simulate a user calling the function requesting 100 tokens
         vm.prank(user);
-        faucet.requestTokens();
+        faucet.requestTokens(requestAmount);
         
         // Check that the user balance increased
-        assertGt(token.balanceOf(user), initialBalance);
+        assertEq(token.balanceOf(user), initialBalance + requestAmount);
     }
 
     function test_RevertWhenFaucetIsEmpty() public {
-        faucet.setDripAmount(1000000000 * 10**18);
+        // Request an amount greater than the 1000 tokens in the faucet
+        uint256 excessiveAmount = 2000 * 10**18;
 
         vm.expectRevert();
         vm.prank(user);
-        faucet.requestTokens();
+        faucet.requestTokens(excessiveAmount);
     }
 }

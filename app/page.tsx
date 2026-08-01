@@ -12,15 +12,7 @@ import {
     Wallet,
     Check,
 } from 'lucide-react';
-
-const TOKEN_FAUCET_ADDRESS = "0x19e50CCbE5B073cefF40E3C433eaFc94C71f05fC";
-
-const CONTRACT_ABI = [
-  { "type": "constructor", "inputs": [{ "name": "_tokenAddress", "type": "address", "internalType": "address" }], "stateMutability": "nonpayable" },
-  { "type": "function", "name": "requestTokens", "inputs": [], "outputs": [], "stateMutability": "nonpayable" },
-  { "type": "function", "name": "dripAmount", "inputs": [], "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }], "stateMutability": "view" },
-  { "type": "event", "name": "TokensDispensed", "inputs": [{ "name": "recipient", "type": "address", "indexed": true, "internalType": "address" }, { "name": "amount", "type": "uint256", "indexed": false, "internalType": "uint256" }], "anonymous": false }
-];
+import { FAUCET_ADDRESS, FAUCET_ABI } from '../constants/contractDetails';
 
 const networks = [
     { id: 'ethereum-sepolia', name: 'Ethereum Sepolia', logo: '♦️' },
@@ -69,12 +61,14 @@ export default function TokenFaucet() {
             const provider = new ethers.BrowserProvider(window.ethereum as any);
             const signer = await provider.getSigner();
             
-            // This forces the address to lowercase before validation
-            const cleanAddress = ethers.getAddress(TOKEN_FAUCET_ADDRESS.toLowerCase());
-            const contract = new ethers.Contract(cleanAddress, CONTRACT_ABI, signer);
+            const cleanAddress = ethers.getAddress(FAUCET_ADDRESS.toLowerCase());
+            const contract = new ethers.Contract(cleanAddress, FAUCET_ABI, signer);
             
-            const tx = await contract.requestTokens();
+            const amountInWei = ethers.parseEther(amount);
+            
+            const tx = await contract.requestTokens(amountInWei);
             await tx.wait();
+            
             alert("Tokens requested successfully!");
         } catch (error: any) {
             console.error("Claim failed", error);
