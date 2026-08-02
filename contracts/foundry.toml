@@ -5,3 +5,6 @@ libs = ["lib"]
 solc_version = "0.8.33"
 
 # See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
+
+[rpc_endpoints]
+sepolia = "https://sepolia.infura.io/v3/e9e875e2dd0b4adfb1075c128782e2f0"
